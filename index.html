@@ -11,9 +11,11 @@
 
 body {
   background-color: #0d0d0d;
-  color: #e2dbd3;
+  color: #f2eee8;
   font-family: 'Cormorant Garamond', Georgia, serif;
   min-height: 100vh;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .page {
@@ -46,7 +48,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 16px;
-  color: #5a544e;
+  color: #8f8477;
   letter-spacing: 0.14em;
   margin-top: 0.5rem;
 }
@@ -124,13 +126,13 @@ body {
 .bio {
   font-size: 18px;
   line-height: 1.9;
-  color: #8b847d;
-  font-weight: 300;
+  color: #c9c1b8;
+  font-weight: 400;
 }
 
 .bio strong {
-  color: #e0dad2;
-  font-weight: 400;
+  color: #f5efe6;
+  font-weight: 500;
 }
 
 .creds {
@@ -148,7 +150,7 @@ body {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #4a433c;
+  color: #9b8f80;
 }
 
 .cred-value {
@@ -183,17 +185,21 @@ body {
 /* ── TABS ── */
 .tabs {
   display: flex;
+  width: 100%;
   border-bottom: 0.5px solid #1a1a1a;
   margin-bottom: 2.5rem;
   gap: 0;
 }
 
+
 .tab {
+  flex: 1;
+  text-align: center;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #4a433c;
+  color: #9b8f80;
   padding: 0.75rem 1.2rem;
   cursor: pointer;
   background: none;
@@ -205,7 +211,7 @@ body {
 }
 
 .tab:hover { color: #7a7570; }
-.tab.active { color: #d4cfc8; border-bottom-color: #d4cfc8; }
+.tab.active { color: #f2e9dd; border-bottom-color: #f2e9dd; font-weight: 500; }
 
 /* ── PANELS ── */
 .panel { display: none; }
@@ -215,7 +221,7 @@ body {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #4a433c;
+  color: #9b8f80;
   margin-bottom: 1.8rem;
 }
 
@@ -239,7 +245,7 @@ body {
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #4a433c;
+  color: #9b8f80;
   margin-bottom: 0.6rem;
 }
 
@@ -275,20 +281,6 @@ body {
   display: block;
 }
 
-.photo-cell-empty {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.photo-cell-empty span {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #2a2620;
-}
 
 /* Cooking */
 .cooking-item {
@@ -354,7 +346,7 @@ body {
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #4a433c;
+  color: #9b8f80;
   margin-bottom: 0.55rem;
 }
 
@@ -363,41 +355,6 @@ body {
   color: #6b655f;
   line-height: 1.8;
   font-weight: 300;
-}
-
-/* Languages */
-.lang-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: #161616;
-}
-
-.lang-card {
-  background: #0d0d0d;
-  padding: 1.75rem 1.5rem;
-}
-
-.l-name {
-  font-size: 24px;
-  font-style: italic;
-  color: #e0dad2;
-  margin-bottom: 0.4rem;
-  font-weight: 400;
-}
-
-.l-script {
-  font-size: 30px;
-  color: #2c2722;
-  margin-bottom: 0.7rem;
-  line-height: 1;
-}
-
-.l-level {
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #4a433c;
 }
 
 /* ── FOOTER ── */
@@ -466,7 +423,7 @@ body {
     <div class="photo-frame">
       <!-- Replace src with your photo path e.g. src="photo.jpg" -->
       <!-- <img src="photo.jpg" alt="Cedric Han"> -->
-      <span class="photo-label">portrait</span>
+      
     </div>
     <div class="intro-right">
       <div class="bio">
@@ -515,97 +472,39 @@ body {
   <!-- TABS -->
   <div class="tabs">
     <button class="tab active" onclick="switchTab(this,'research')">Research</button>
-    <button class="tab" onclick="switchTab(this,'photography')">Photography</button>
-    <button class="tab" onclick="switchTab(this,'cooking')">Cooking</button>
     <button class="tab" onclick="switchTab(this,'writing')">Writing</button>
-    <button class="tab" onclick="switchTab(this,'languages')">Languages</button>
+    <button class="tab" onclick="switchTab(this,'cooking')">Cooking</button>
+    <button class="tab" onclick="switchTab(this,'photography')">Photography</button>
   </div>
 
   <!-- RESEARCH -->
   <div id="research" class="panel active">
     <div class="panel-eyebrow">Current work</div>
-    <div class="research-item">
-      <div class="r-title">Single-cell multimodal analysis of T cell dynamics</div>
-      <div class="r-meta">Computational Biology · Yosef Lab · 2024</div>
-      <div class="r-desc">Integrating RNA, protein, and TCR sequencing to understand immune cell decision-making at single-cell resolution. Tools: MuData, scirpy, TotalVI, MrVI.</div>
-    </div>
-    <div class="research-item">
-      <div class="r-title">Pathtracing & physically-based rendering</div>
-      <div class="r-meta">Computer Graphics · CS 184/284A · 2025</div>
-      <div class="r-desc">Global illumination, BVH acceleration, importance sampling, and subsurface scattering from first principles.</div>
-    </div>
   </div>
 
   <!-- PHOTOGRAPHY -->
   <div id="photography" class="panel">
     <div class="panel-eyebrow">Selected frames</div>
     <div class="photo-grid">
-      <!-- Replace with: <div class="photo-cell"><img src="photos/1.jpg" alt=""></div> -->
-      <div class="photo-cell"><div class="photo-cell-empty"><span>—</span></div></div>
-      <div class="photo-cell"><div class="photo-cell-empty"><span>—</span></div></div>
-      <div class="photo-cell"><div class="photo-cell-empty"><span>—</span></div></div>
-      <div class="photo-cell"><div class="photo-cell-empty"><span>—</span></div></div>
-      <div class="photo-cell"><div class="photo-cell-empty"><span>—</span></div></div>
-      <div class="photo-cell"><div class="photo-cell-empty"><span>—</span></div></div>
+      <div class="photo-cell"></div>
+      <div class="photo-cell"></div>
+      <div class="photo-cell"></div>
+      <div class="photo-cell"></div>
+      <div class="photo-cell"></div>
+      <div class="photo-cell"></div>
     </div>
   </div>
 
   <!-- COOKING -->
   <div id="cooking" class="panel">
     <div class="panel-eyebrow">From the kitchen</div>
-    <div class="cooking-item">
-      <!-- Replace with: <div class="cooking-img"><img src="food/dish1.jpg" alt="Dish name"></div> -->
-      <div class="cooking-img"></div>
-      <div>
-        <div class="c-name">Dish name</div>
-        <div class="c-notes">Tasting notes, technique observations, what I was thinking about when I made it. Food as a lens on science and culture.</div>
-      </div>
-    </div>
-    <div class="cooking-item">
-      <div class="cooking-img"></div>
-      <div>
-        <div class="c-name">Another dish</div>
-        <div class="c-notes">Short reflection on process, ingredients, inspiration.</div>
-      </div>
-    </div>
   </div>
 
   <!-- WRITING -->
   <div id="writing" class="panel">
     <div class="panel-eyebrow">Essays & fragments</div>
-    <div class="writing-item">
-      <div class="w-title">On the epistemology of not knowing</div>
-      <div class="w-meta">Philosophy · Jan 2025</div>
-      <div class="w-excerpt">What does it mean to hold a belief loosely? Most people treat uncertainty as a failure state. I think it might be the only honest position...</div>
-    </div>
-    <div class="writing-item">
-      <div class="w-title">What single-cell sequencing taught me about identity</div>
-      <div class="w-meta">Science · Mar 2025</div>
-      <div class="w-excerpt">Every cell carries the same genome. What makes a T cell a T cell is almost entirely a question of what gets silenced...</div>
-    </div>
   </div>
 
-  <!-- LANGUAGES -->
-  <div id="languages" class="panel">
-    <div class="panel-eyebrow">In progress</div>
-    <div class="lang-grid">
-      <div class="lang-card">
-        <div class="l-name">Japanese</div>
-        <div class="l-script">日本語</div>
-        <div class="l-level">Intermediate</div>
-      </div>
-      <div class="lang-card">
-        <div class="l-name">Spanish</div>
-        <div class="l-script">Español</div>
-        <div class="l-level">Conversational</div>
-      </div>
-      <div class="lang-card">
-        <div class="l-name">French</div>
-        <div class="l-script">Français</div>
-        <div class="l-level">Beginner</div>
-      </div>
-    </div>
-  </div>
 
   <!-- FOOTER -->
   <div class="footer">
