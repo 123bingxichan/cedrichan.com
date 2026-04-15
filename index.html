@@ -472,6 +472,7 @@ body {
   <!-- TABS -->
   <div class="tabs">
     <button class="tab active" onclick="switchTab(this,'research')">Research</button>
+    <button class="tab" onclick="switchTab(this,'projects')">Projects</button>
     <button class="tab" onclick="switchTab(this,'writing')">Writing</button>
     <button class="tab" onclick="switchTab(this,'cooking')">Cooking</button>
     <button class="tab" onclick="switchTab(this,'photography')">Photography</button>
@@ -482,17 +483,15 @@ body {
     <div class="panel-eyebrow">Current work</div>
   </div>
 
-  <!-- PHOTOGRAPHY -->
-  <div id="photography" class="panel">
-    <div class="panel-eyebrow">Selected frames</div>
-    <div class="photo-grid">
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-    </div>
+  <!-- PROJECTS -->
+  <div id="projects" class="panel">
+    <div class="panel-eyebrow">Repos & builds</div>
+    <div class="r-desc">A home for GitHub repositories, personal projects, and class builds.</div>
+  </div>
+
+  <!-- WRITING -->
+  <div id="writing" class="panel">
+    <div class="panel-eyebrow">Essays & fragments</div>
   </div>
 
   <!-- COOKING -->
@@ -500,9 +499,18 @@ body {
     <div class="panel-eyebrow">From the kitchen</div>
   </div>
 
-  <!-- WRITING -->
-  <div id="writing" class="panel">
-    <div class="panel-eyebrow">Essays & fragments</div>
+  <!-- PHOTOGRAPHY -->
+  <div id="photography" class="panel">
+    <div class="panel-eyebrow">Selected frames</div>
+    <div class="photo-grid">
+      <div class="photo-cell"><img src="photo/mt_tam.jpg" alt="Mount Tamalpais landscape"></div>
+      <div class="photo-cell"><img src="photo/sapdrop.jpg" alt="Water droplet on a leaf"></div>
+      <div class="photo-cell"><img src="photo/halfdome.jpg" alt="Half Dome in Yosemite"></div>
+      <div class="photo-cell"><img src="photo/beach.jpg" alt="Beach shoreline"></div>
+      <div class="photo-cell"><img src="photo/sakura.jpg" alt="Sakura blossoms"></div>
+      <div class="photo-cell"><img src="photo/river.jpg" alt="River scene"></div>
+      <div class="photo-cell"><img src="photo/dragonfly.jpg" alt="Dragonfly macro shot"></div>
+    </div>
   </div>
 
 
