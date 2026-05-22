@@ -196,13 +196,47 @@ body {
 
 /* ── RESEARCH ── */
 .research-item {
-  padding: 1.4rem 0;
+  padding: 1.8rem 0;
   border-bottom: 0.5px solid #161616;
 }
 .research-item:last-child { border-bottom: none; }
 .r-title { font-size: 22px; font-style: italic; color: #d4cfc8; margin-bottom: 0.25rem; font-weight: 400; }
-.r-meta { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #9b8f80; margin-bottom: 0.6rem; }
-.r-desc { font-size: 17px; color: #6b655f; line-height: 1.8; font-weight: 300; }
+.r-meta { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #9b8f80; margin-bottom: 0.75rem; }
+.r-desc { font-size: 16px; color: #6b655f; line-height: 1.85; font-weight: 300; margin-bottom: 1rem; }
+.r-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.r-link {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4b453f;
+  text-decoration: none;
+  border: 0.5px solid #2a2520;
+  padding: 4px 10px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.r-link:hover { color: #a09880; border-color: #4a4540; }
+
+/* ── PROJECTS ── */
+.project-item {
+  padding: 1.8rem 0;
+  border-bottom: 0.5px solid #161616;
+}
+.project-item:last-child { border-bottom: none; }
+.p-title { font-size: 22px; font-style: italic; color: #d4cfc8; margin-bottom: 0.25rem; font-weight: 400; }
+.p-meta { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #9b8f80; margin-bottom: 0.75rem; }
+.p-desc { font-size: 16px; color: #6b655f; line-height: 1.85; font-weight: 300; margin-bottom: 1rem; }
+.p-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.p-link {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4b453f;
+  text-decoration: none;
+  border: 0.5px solid #2a2520;
+  padding: 4px 10px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.p-link:hover { color: #a09880; border-color: #4a4540; }
 
 /* ── PHOTOGRAPHY ── */
 .photo-grid {
@@ -473,11 +507,42 @@ body {
   <!-- RESEARCH -->
   <div id="research" class="panel active">
     <div class="panel-eyebrow">Current work</div>
+    <div class="research-item">
+      <div class="r-title">Single-cell Multiomic Analysis of Tumor Neoantigen-specific T Cell Dynamics</div>
+      <div class="r-meta">Computational Immunology · Wagner|DuPage Labs, UC Berkeley · 2024 – Present</div>
+      <div class="r-desc">I study how CD8+ T cells that recognize tumor-specific neoantigens change functionally over time using a time-controlled tumor mouse model. Using paired scRNA-seq, CITE-seq, and TCR sequencing, I integrate transcriptomic, proteomic, and clonotypic information at single-cell resolution to map the trajectory of T cells from early activation to exhaustion — with the goal of identifying intervention points for immunotherapy.</div>
+      <div class="r-links">
+        <a class="r-link" href="https://drive.google.com/file/d/13f2Q6M0nOIO4VZXK0EWTtwEt7oQWBYR0/view?usp=drive_link" target="_blank" rel="noopener">Poster ↗</a>
+  
+        <!-- Uncomment when ready to publish:
+        <a class="r-link" href="#">Paper ↗</a>
+        
+        -->
+      </div>
+    </div>
   </div>
 
   <!-- PROJECTS -->
   <div id="projects" class="panel">
-    <div class="panel-eyebrow">Projects</div>
+    <div class="panel-eyebrow">Selected projects</div>
+    <div class="project-item">
+      <div class="p-title">Receipt Scanner</div>
+      <div class="p-meta">Personal Project · 2025</div>
+      <div class="p-desc">A personal finance tool that extracts itemized data from grocery receipts using OCR, then stores purchases in a queryable database. Enables spending breakdowns by category (pantry staples, produce, household goods) and tracks per-ingredient costs over time — so any recipe can be costed down to the gram.</div>
+      <div class="p-links">
+        <a class="p-link" href="https://github.com/123bingxichan/receipt_scanner" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="p-title">Minecraft Material Modelling & Shader</div>
+      <div class="p-meta">CS184 Final Project · Computer Graphics · 2025</div>
+      <div class="p-desc">A physically-based rendering pipeline built inside Minecraft, implementing Cook-Torrance BRDF shading with LabPBR-compliant material maps. I created custom specular, normal, and roughness textures to simulate real-world surface behaviors like polished metals, rough stone, and shiny ice.</div>
+      <div class="p-links">
+        <a class="p-link" href="https://cal-cs184-student.github.io/project-webpages-acdj/" target="_blank" rel="noopener">Website ↗</a>
+        <a class="p-link" href="https://github.com/Julius-Valerius/cs184-AwesomeMinecraftMod/commits/main/" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    
   </div>
 
   <!-- WRITING -->
