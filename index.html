@@ -33,8 +33,6 @@ body {
   gap: 2rem;
 }
 
-.header-left {}
-
 .name {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 54px;
@@ -53,14 +51,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* ── HERO ILLUSTRATION ── */
-.hero-illustration {
-  width: 160px;
-  height: 160px;
-  flex-shrink: 0;
-  opacity: 0.85;
-}
-
 /* ── BAROQUE DIVIDER ── */
 .divider {
   display: flex;
@@ -75,9 +65,7 @@ body {
   background: #222;
 }
 
-.divider-ornament {
-  flex-shrink: 0;
-}
+.divider-ornament { flex-shrink: 0; }
 
 /* ── INTRO ── */
 .intro {
@@ -130,16 +118,9 @@ body {
   font-weight: 400;
 }
 
-.bio strong {
-  color: #f5efe6;
-  font-weight: 500;
-}
+.bio strong { color: #f5efe6; font-weight: 500; }
 
-.creds {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
+.creds { display: flex; flex-direction: column; gap: 0.85rem; }
 
 .cred {
   border-left: 0.5px solid #1e1e1e;
@@ -161,11 +142,7 @@ body {
 }
 
 /* ── SOCIAL ── */
-.social {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-}
+.social { display: flex; gap: 1.25rem; align-items: center; }
 
 .social a {
   display: flex;
@@ -188,9 +165,7 @@ body {
   width: 100%;
   border-bottom: 0.5px solid #1a1a1a;
   margin-bottom: 2.5rem;
-  gap: 0;
 }
-
 
 .tab {
   flex: 1;
@@ -225,38 +200,17 @@ body {
   margin-bottom: 1.8rem;
 }
 
-/* Research */
+/* ── RESEARCH ── */
 .research-item {
   padding: 1.4rem 0;
   border-bottom: 0.5px solid #161616;
 }
-
 .research-item:last-child { border-bottom: none; }
+.r-title { font-size: 22px; font-style: italic; color: #d4cfc8; margin-bottom: 0.25rem; font-weight: 400; }
+.r-meta { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #9b8f80; margin-bottom: 0.6rem; }
+.r-desc { font-size: 17px; color: #6b655f; line-height: 1.8; font-weight: 300; }
 
-.r-title {
-  font-size: 22px;
-  font-style: italic;
-  color: #d4cfc8;
-  margin-bottom: 0.25rem;
-  font-weight: 400;
-}
-
-.r-meta {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #9b8f80;
-  margin-bottom: 0.6rem;
-}
-
-.r-desc {
-  font-size: 17px;
-  color: #6b655f;
-  line-height: 1.8;
-  font-weight: 300;
-}
-
-/* Photography */
+/* ── PHOTOGRAPHY ── */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -268,93 +222,146 @@ body {
   background: #111;
   overflow: hidden;
   cursor: pointer;
-  transition: opacity 0.2s;
   position: relative;
 }
 
-.photo-cell:hover { opacity: 0.7; }
+/* Hover overlay with expand icon */
+.photo-cell::after {
+  content: '⤢';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0);
+  transition: background 0.2s;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.photo-cell:hover::after { opacity: 1; background: rgba(0,0,0,0.35); }
 
 .photo-cell img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
+  /* Default focal point — override per-image with style="object-position: ..." */
+  object-position: center center;
 }
 
+.photo-cell:hover img { transform: scale(1.03); }
 
-/* Cooking */
-.cooking-item {
+/* ── COOKING card grid ── */
+.card-grid {
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 1.5rem;
-  padding: 1.4rem 0;
-  border-bottom: 0.5px solid #161616;
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #161616;
 }
 
-.cooking-item:last-child { border-bottom: none; }
-
-.cooking-img {
-  aspect-ratio: 1;
-  background: #111;
-  border: 0.5px solid #1a1a1a;
-  overflow: hidden;
-}
-
-.cooking-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.c-name {
-  font-size: 22px;
-  font-style: italic;
-  color: #d4cfc8;
-  margin-bottom: 0.3rem;
-  font-weight: 400;
-}
-
-.c-notes {
-  font-size: 16px;
-  color: #6b655f;
-  line-height: 1.8;
-  font-weight: 300;
-}
-
-/* Writing */
-.writing-item {
-  padding: 1.4rem 0;
-  border-bottom: 0.5px solid #161616;
+.cooking-card {
+  background: #0d0d0d;
   cursor: pointer;
   transition: opacity 0.2s;
 }
+.cooking-card:hover { opacity: 0.75; }
 
-.writing-item:hover { opacity: 0.75; }
-.writing-item:last-child { border-bottom: none; }
-
-.w-title {
-  font-size: 23px;
-  font-style: italic;
-  color: #d4cfc8;
-  margin-bottom: 0.2rem;
-  font-weight: 400;
+.cooking-card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #111;
+  overflow: hidden;
 }
+.cooking-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.w-meta {
-  font-size: 12px;
-  letter-spacing: 0.1em;
+.cooking-card-body { padding: 0.85rem 1rem 1rem; }
+
+.c-name { font-size: 16px; font-style: italic; color: #d4cfc8; margin-bottom: 0.3rem; font-weight: 400; }
+.c-notes { font-size: 12px; color: #4a4540; line-height: 1.7; font-weight: 300; }
+
+/* ── WRITING card grid ── */
+.writing-card {
+  background: #0d0d0d;
+  padding: 1.2rem 1rem 1.3rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+.writing-card:hover { opacity: 0.75; }
+
+.w-tag {
+  font-size: 9px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #9b8f80;
-  margin-bottom: 0.55rem;
+  padding: 2px 7px;
+  border: 0.5px solid #222;
+  color: #3a3530;
+  display: inline-block;
+  width: fit-content;
+}
+.w-tag.science   { border-color: #1e2a1e; color: #3a5040; }
+.w-tag.philosophy{ border-color: #1e1e2a; color: #3a3a58; }
+.w-tag.opinion   { border-color: #2a1e1e; color: #503a3a; }
+
+.w-title { font-size: 16px; font-style: italic; color: #d4cfc8; font-weight: 400; line-height: 1.3; }
+.w-meta  { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #333; }
+.w-excerpt { font-size: 12px; color: #4a4540; line-height: 1.7; font-weight: 300; }
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
 }
 
-.w-excerpt {
-  font-size: 16px;
-  color: #6b655f;
-  line-height: 1.8;
-  font-weight: 300;
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  box-shadow: 0 0 60px rgba(0,0,0,0.8);
+  cursor: default;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 28px;
+  color: #555;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+}
+.lightbox-close:hover { color: #ccc; }
+
+.lightbox-caption {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-style: italic;
+  color: #555;
+  letter-spacing: 0.06em;
 }
 
 /* ── FOOTER ── */
@@ -367,17 +374,9 @@ body {
   align-items: center;
 }
 
-.footer-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 16px;
-  color: #3a342d;
-  font-style: italic;
-}
+.footer-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 16px; color: #3a342d; font-style: italic; }
 
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
+.footer-links { display: flex; gap: 1.5rem; }
 
 .footer-links a {
   font-size: 12px;
@@ -387,18 +386,25 @@ body {
   text-decoration: none;
   transition: color 0.2s;
 }
-
 .footer-links a:hover { color: #5a5550; }
 </style>
 </head>
 <body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
 <div class="page">
 
   <!-- HEADER -->
   <div class="header">
     <div class="header-left">
       <div class="name">Cedric Chan</div>
-      <div class="motto">question <span style="text-decoration: underline;">everything</span></div>
+      <div class="motto">question <span style="text-decoration:underline;">everything</span></div>
     </div>
   </div>
 
@@ -421,14 +427,12 @@ body {
   <!-- INTRO -->
   <div class="intro">
     <div class="photo-frame">
-      <!-- Replace src with your photo path e.g. src="photo.jpg" -->
-      <!-- <img src="photo.jpg" alt="Cedric Han"> -->
-      
+      <img src="./DSC02795.jpg" alt="Cedric Chan">
     </div>
     <div class="intro-right">
       <div class="bio">
-        I consider myself a <strong>modern <a href="https://en.wikipedia.org/wiki/Philomath" target="_blank" style="color: inherit; text-decoration: underline;">philomath</a></strong>. I first fell in love with Immunology, and learned to code to study the Immune System better. Being a triple major taught me how joyous the process of learning can be, a mindset I now apply to all aspects of my life. I believe the most fascinating insights come between disciplines, through unique perspectives, and that every human should stay curious enough to question <span style="text-decoration: underline;">everything</span>.
-        </div>
+        I consider myself a <strong>modern <a href="https://en.wikipedia.org/wiki/Philomath" target="_blank" style="color:inherit;text-decoration:underline;">philomath</a></strong>. I first fell in love with Immunology, and learned to code to study the Immune System better. Being a triple major taught me how joyous the process of learning can be, a mindset I now apply to all aspects of my life. I believe the most fascinating insights come between disciplines, through unique perspectives, and that every human should stay curious enough to question <span style="text-decoration:underline;">everything</span>.
+      </div>
       <div class="creds">
         <div class="cred">
           <div class="cred-label">Institution</div>
@@ -459,7 +463,7 @@ body {
   </div>
 
   <!-- DIVIDER 2 -->
-  <div class="divider" style="margin-top: 2.5rem;">
+  <div class="divider" style="margin-top:2.5rem;">
     <div class="divider-line"></div>
     <svg class="divider-ornament" width="70" height="20" viewBox="0 0 70 20" fill="none">
       <path d="M35 10 C29 4, 19 4, 15 9 C11 14, 15 18, 20 16 C24 14, 23 10, 20 10" stroke="#2a2520" stroke-width="0.8" fill="none" stroke-linecap="round"/>
@@ -482,29 +486,82 @@ body {
     <div class="panel-eyebrow">Current work</div>
   </div>
 
-  <!-- PHOTOGRAPHY -->
-  <div id="photography" class="panel">
-    <div class="panel-eyebrow">Selected frames</div>
-    <div class="photo-grid">
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
-      <div class="photo-cell"></div>
+  <!-- WRITING -->
+  <div id="writing" class="panel">
+    <div class="panel-eyebrow">Essays</div>
+    <div class="card-grid">
+      <!-- Add writing cards here. Example:
+      <a class="writing-card" href="./writing/essay.html">
+        <div class="w-tag philosophy">Philosophy</div>
+        <div class="w-title">Essay title</div>
+        <div class="w-meta">Jan 2025</div>
+        <div class="w-excerpt">Short excerpt...</div>
+      </a>
+      -->
     </div>
   </div>
 
   <!-- COOKING -->
   <div id="cooking" class="panel">
     <div class="panel-eyebrow">From the kitchen</div>
+    <div class="card-grid">
+      <!-- Add cooking cards here. Example:
+      <div class="cooking-card">
+        <div class="cooking-card-img"><img src="./cooking/dish.jpg" alt="Dish name"></div>
+        <div class="cooking-card-body">
+          <div class="c-name">Dish name</div>
+          <div class="c-notes">Notes about the dish.</div>
+        </div>
+      </div>
+      -->
+    </div>
   </div>
 
-  <!-- WRITING -->
-  <div id="writing" class="panel">
-    <div class="panel-eyebrow">Essays & fragments</div>
-  </div>
+  <!-- PHOTOGRAPHY -->
+  <div id="photography" class="panel">
+    <div class="panel-eyebrow">Selected frames</div>
+    <div class="photo-grid">
+      <!--
+        Add photos like this:
+          <div class="photo-cell" onclick="openLightbox('./photo/beach.jpg', 'Beach')">
+            <img src="./photo/beach.jpg" alt="Beach" style="object-position: center 30%;">
+          </div>
 
+        Adjust object-position to control the crop focal point:
+          "center top"    — keeps the top of the image
+          "center bottom" — keeps the bottom
+          "center 30%"    — 30% from the top (good for horizon shots)
+          "center center" — default, midpoint
+      -->
+      <div class="photo-cell" onclick="openLightbox('./photo/beach.jpg', 'Beach')">
+        <img src="./photo/beach.jpg" alt="Beach" style="object-position: center bottom;">
+      </div>
+      <div class="photo-cell" onclick="openLightbox('./photo/dragonfly.jpg', 'Dragonfly')">
+        <img src="./photo/dragonfly.jpg" alt="Dragonfly" style="object-position: center center;">
+      </div>
+      <div class="photo-cell" onclick="openLightbox('./photo/halfdome.jpg', 'Half Dome')">
+        <img src="./photo/halfdome.jpg" alt="Half Dome" style="object-position: center center;">
+      </div>
+      <div class="photo-cell" onclick="openLightbox('./photo/mt_tam.jpg', 'Mt. Tam')">
+        <img src="./photo/mt_tam.jpg" alt="Mt. Tam" style="object-position: center center;">
+      </div>
+      <div class="photo-cell" onclick="openLightbox('./photo/river.jpg', 'River')">
+        <img src="./photo/river.jpg" alt="River" style="object-position: center top;">
+      </div>
+      <div class="photo-cell" onclick="openLightbox('./photo/sapdrop.jpg', 'Sap Drop')">
+        <img src="./photo/sapdrop.jpg" alt="Sap Drop" style="object-position: center center;">
+      </div>
+      <div class="photo-cell" onclick="openLightbox('./photo/sapdrop.jpg', 'Sap Drop')">
+        <img src="./photo/rose.jpg" alt="Sap Drop" style="object-position: center center;">
+      </div>
+      <div class="photo-cell" onclick="openLightbox('./photo/sapdrop.jpg', 'Sap Drop')">
+        <img src="./photo/enoden.jpg" alt="Sap Drop" style="object-position: center center;">
+      </div>
+      <div class="photo-cell" onclick="openLightbox('./photo/sapdrop.jpg', 'Sap Drop')">
+        <img src="./photo/paddle.jpg" alt="Sap Drop" style="object-position: center center;">
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <div class="footer">
@@ -512,7 +569,7 @@ body {
     <div class="footer-links">
       <a href="mailto:123bingxichan@gmail.com">Email</a>
       <a href="https://github.com/123bingxichan" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/cedricchan7190/" target="_blank">LinkedIn</a>
     </div>
   </div>
 
@@ -525,6 +582,23 @@ function switchTab(btn, id) {
   btn.classList.add('active');
   document.getElementById(id).classList.add('active');
 }
+
+function openLightbox(src, caption) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.getElementById('lightbox-img').src = '';
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 </body>
 </html>
