@@ -70,7 +70,7 @@ body {
 /* ── INTRO ── */
 .intro {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 2.5rem;
   margin-bottom: 0.5rem;
   align-items: start;
@@ -78,30 +78,20 @@ body {
 
 .photo-frame {
   width: 100%;
-  aspect-ratio: 3/4;
+  /* Let the photo's natural tall shape show — no fixed aspect ratio crop */
   background: #111;
   border: 0.5px solid #1e1e1e;
-  display: flex;
-  align-items: flex-end;
-  padding: 0.75rem;
   position: relative;
   overflow: hidden;
 }
 
 .photo-frame img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
-}
-
-.photo-label {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #332e27;
-  position: relative;
-  z-index: 1;
+  /* show full height of the portrait */
+  object-position: center top;
 }
 
 .intro-right {
@@ -124,7 +114,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  padding-left: 1.5rem;
 }
 
 .cred {
@@ -230,23 +219,18 @@ body {
   position: relative;
 }
 
-/* Hover overlay with expand icon */
 .photo-cell::after {
   content: '⤢';
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  color: rgba(255,255,255,0.7);
-  background: rgba(0,0,0,0);
-  transition: background 0.2s;
-  pointer-events: none;
   display: grid;
   place-items: center;
+  font-size: 22px;
+  color: rgba(255,255,255,0.7);
   opacity: 0;
-  transition: opacity 0.2s;
+  background: rgba(0,0,0,0);
+  transition: opacity 0.2s, background 0.2s;
+  pointer-events: none;
 }
 
 .photo-cell:hover::after { opacity: 1; background: rgba(0,0,0,0.35); }
@@ -257,7 +241,6 @@ body {
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
-  /* Default focal point — override per-image with style="object-position: ..." */
   object-position: center center;
 }
 
@@ -314,12 +297,12 @@ body {
   display: inline-block;
   width: fit-content;
 }
-.w-tag.science   { border-color: #1e2a1e; color: #3a5040; }
-.w-tag.philosophy{ border-color: #1e1e2a; color: #3a3a58; }
-.w-tag.opinion   { border-color: #2a1e1e; color: #503a3a; }
+.w-tag.science    { border-color: #1e2a1e; color: #3a5040; }
+.w-tag.philosophy { border-color: #1e1e2a; color: #3a3a58; }
+.w-tag.opinion    { border-color: #2a1e1e; color: #503a3a; }
 
-.w-title { font-size: 16px; font-style: italic; color: #d4cfc8; font-weight: 400; line-height: 1.3; }
-.w-meta  { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #333; }
+.w-title   { font-size: 16px; font-style: italic; color: #d4cfc8; font-weight: 400; line-height: 1.3; }
+.w-meta    { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #333; }
 .w-excerpt { font-size: 12px; color: #4a4540; line-height: 1.7; font-weight: 300; }
 
 /* ── LIGHTBOX ── */
@@ -492,6 +475,11 @@ body {
     <div class="panel-eyebrow">Current work</div>
   </div>
 
+  <!-- PROJECTS -->
+  <div id="projects" class="panel">
+    <div class="panel-eyebrow">Projects</div>
+  </div>
+
   <!-- WRITING -->
   <div id="writing" class="panel">
     <div class="panel-eyebrow">Essays</div>
@@ -527,18 +515,6 @@ body {
   <div id="photography" class="panel">
     <div class="panel-eyebrow">Selected frames</div>
     <div class="photo-grid">
-      <!--
-        Add photos like this:
-          <div class="photo-cell" onclick="openLightbox('./photo/beach.jpg', 'Beach')">
-            <img src="./photo/beach.jpg" alt="Beach" style="object-position: center 30%;">
-          </div>
-
-        Adjust object-position to control the crop focal point:
-          "center top"    — keeps the top of the image
-          "center bottom" — keeps the bottom
-          "center 30%"    — 30% from the top (good for horizon shots)
-          "center center" — default, midpoint
-      -->
       <div class="photo-cell" onclick="openLightbox('./photo/beach.jpg', 'Beach')">
         <img src="./photo/beach.jpg" alt="Beach" style="object-position: center bottom;">
       </div>
